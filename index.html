@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pathory: Unleash Arrow Puzzle | LiorX</title>
+  <meta name="description" content="Pathory is a relaxing arrow maze puzzle game for Android by LiorX. Free your arrows, solve the maze, and unwind.">
+  <meta name="theme-color" content="#0f1220">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1220;
+      --card: #181c31;
+      --border: #272c4a;
+      --text: #e9ecf8;
+      --muted: #9aa1c4;
+      --accent: #ffb020;
+      --accent2: #ff6b3d;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 22px; }
+
+    /* ---------- Header ---------- */
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .brand span { color: var(--accent); }
+    nav a {
+      margin-left: 22px;
+      color: var(--muted);
+      font-size: 15px;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--text); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      text-align: center;
+      padding: 84px 0 70px;
+      background:
+        radial-gradient(600px 300px at 50% 0%, rgba(255,176,32,0.16), transparent 70%),
+        radial-gradient(500px 260px at 85% 30%, rgba(255,107,61,0.10), transparent 70%);
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 22px;
+      background: var(--card);
+    }
+    .hero h1 {
+      font-size: clamp(34px, 7vw, 58px);
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero p {
+      max-width: 560px;
+      margin: 0 auto 34px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 34px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 17px;
+      color: #1a1204;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 30px rgba(255,140,40,0.28);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(255,140,40,0.38);
+    }
+
+    /* ---------- Features ---------- */
+    section { padding: 64px 0; }
+    h2 {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    .sub {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: transform .2s, border-color .2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+    .icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+    .card h3 { font-size: 19px; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 15px; }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 52px 24px;
+    }
+    .cta h2 { margin-bottom: 12px; }
+    .cta p { color: var(--muted); margin-bottom: 28px; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 70px;
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 560px) {
+      nav { display: none; }
+      .hero { padding: 60px 0 50px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <div class="brand">Lior<span>X</span></div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="badge">🎮 Free Android Puzzle Game</div>
+      <h1>Unleash the <em>Arrows</em>.<br>Solve the Maze.</h1>
+      <p>Pathory is a relaxing arrow maze puzzle. Slide each arrow out of the board, plan your moves, and enjoy hundreds of calming levels.</p>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.liorx.pathory">Get it on Google Play</a>
+    </div>
+  </div>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>Why you'll love Pathory</h2>
+      <p class="sub">Simple to learn. Satisfying to master.</p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="icon">🧩</div>
+          <h3>Clever Puzzles</h3>
+          <p>Free every arrow without getting blocked. Think ahead and find the right order.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📈</div>
+          <h3>Growing Challenge</h3>
+          <p>Boards start small and grow bigger and trickier as you progress.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🌙</div>
+          <h3>Relaxing Feel</h3>
+          <p>Smooth animations and a clean look make it perfect for unwinding.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📴</div>
+          <h3>Play Anywhere</h3>
+          <p>No complicated setup. Open the game and start playing right away.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Ready to play?</h2>
+        <p>Download Pathory for free and start your first level today.</p>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.liorx.pathory">Download on Google Play</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © 2026 LiorX. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
